@@ -1,0 +1,86 @@
+*{
+	 margin:0;
+	 padding:0;
+}
+
+.loginheader {
+    width:114px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+	font-size: 45px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 58.5px;
+	text-align: center;
+	color:#27777C;
+}
+.register {
+    width:423px;
+    text-align:center;
+    margin:50px auto;
+    line-height: 24.5px;
+}
+.register p {
+    font-family: 'Open Sans', sans-serif;
+    color:#27777C;
+    font-size: 13px;
+}
+.inputholder {
+    width:100%;
+    background-color: white;
+    text-align:left;
+    color: #27777C;
+}
+.inputholder input {
+    padding:16px 20px;
+    width:340px;
+    background-color: transparent;
+    color: #27777C;
+    font-style: italic;
+    font-weight: bold;
+    border:none;
+}
+.inputholder input:focus {
+    outline:none;
+}
+.inputholder a {
+    color: #27777C;
+    font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	cursor: pointer;
+	text-decoration: none;
+}
+.loginButton {
+    color:white;
+    background-color: #27777C;
+    font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	border-radius: 20px;
+	padding:7px 15px;
+	text-align: center;
+	margin:18px 119px;
+	float:left;
+	cursor:pointer;
+}
+.loginButton:hover {
+    background-color: #B7777b;
+}
+.loginRegister{
+    float:left;
+    text-decoration: none;
+    color: #27777C;
+    font-size: 11px;
+    margin:0 123px;
+    font-family: 'Open Sans', sans-serif;
+}
+.bold {
+    font-weight: bold;
+}
+/*
