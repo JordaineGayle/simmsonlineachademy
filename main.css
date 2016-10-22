@@ -20,10 +20,9 @@ a{
 }
 header{
     width: 100%;
-    height: 220px;
+    height: 143px;
     display:block;
     z-index: 6;
-    padding: 0 50px;
     background:whitesmoke;
 	opacity: 0.9;
 	position: absolute;
@@ -31,15 +30,10 @@ header{
     -moz-box-shadow: 1px 4px 7px 1px rgba(213, 168, 168, 0.7);
      box-shadow: 1px 4px 7px 1px rgba(213, 168, 168, 0.7);
 }
+
 #banner{
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding:0px;
-    margin: 0 auto;
-    color:#666;
-    text-align:center;
-}
+    height:100px;
+} 
 #banner > ul{
 	list-style:none;
 	font-size:22px;
@@ -59,7 +53,11 @@ header{
     padding: 2px;
 }
 .logo{
-	margin: 0 300px;
+	margin: 0 auto;
+	width:110px;
+}
+.logo img {
+    width:110px;
 }
 #courses{
   height: auto;
@@ -68,7 +66,7 @@ header{
   top: 220px;
   z-index: 5;
   opacity: 1;
-  padding: 30px 100px;
+  padding: 30px 60px;
   background-color: #eee;
   display: block;
 }
@@ -95,7 +93,7 @@ header{
 	list-style:none;
 	font-size:24px;
 	display:inline-block;	
-	margin: 0 50px;
+	margin: 0 20px;
 }
 #courses > ul > li{
 	display:block;
