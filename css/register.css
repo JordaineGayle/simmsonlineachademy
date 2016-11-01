@@ -10,7 +10,7 @@
 
 h1 {
     font-family: 'Open Sans', sans-serif;
-	font-size: 45px;
+	font-size: 40px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: bold;
@@ -97,4 +97,70 @@ h1 {
     font-size: 24px;
 }
 
-/*
+.policy {
+    width:700px;
+    height:400px;
+    overflow: scroll;
+    text-align:center;
+    margin:50px auto;
+    line-height: 24.5px;
+}
+
+.policy h2 {
+    font-family: 'Open Sans', sans-serif;
+	font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 58.5px;
+	text-align: center;
+	color:#27777C;
+	margin: 10px 0;
+}
+.policy p {
+    font-family: 'Open Sans', sans-serif;
+    color:#27777C;
+    font-size: 13px;
+}
+.policy li {
+    font-family: 'Open Sans', sans-serif;
+    color:#27777C;
+    font-size: 13px;
+    text-align: left;
+    margin:10px 0;
+}
+.Coach {
+    width: 332px;
+    float:left;
+    border-radius: 20px;
+    background-color:rgba(15,47,49,.4); 
+    cursor: pointer;
+    -webkit-transition-property: margin; /* Safari */
+    transition-property: margin;
+    transition-duration:.5s;
+    -webkit-transition-duration:.5s;
+}
+.Coach:hover {
+    margin:15px;
+}
+.Coach h2,.Student h2 {
+    color:white;
+    margin: 100px 0;
+    
+}
+.Student {
+    width: 332px;
+    float:right;
+    border-radius: 20px;
+    background-color:rgba(15,47,49,.4); 
+    cursor: pointer;
+    -webkit-transition-property: margin; /* Safari */
+    transition-property: margin;
+    transition-duration:.5s;
+    -webkit-transition-duration:.5s;
+}
+.Student:hover {
+    margin:15px;
+}
+
+/**/

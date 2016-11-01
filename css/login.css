@@ -22,6 +22,7 @@ h1 {
     width:300px;
     text-align:center;
     margin:50px auto;
+    display:none;
 }
 .inputholder {
     width:100%;
@@ -75,4 +76,48 @@ h1 {
 .bold {
     font-weight: bold;
 }
+
+.Coach {
+    width: 332px;
+    float:left;
+    border-radius: 20px;
+    background-color:rgba(15,47,49,.4); 
+    cursor: pointer;
+    -webkit-transition-property: margin; /* Safari */
+    transition-property: margin;
+    transition-duration:.5s;
+    -webkit-transition-duration:.5s;
+}
+.Coach:hover {
+    margin:15px;
+}
+.Coach h2,.Student h2 {
+    color:white;
+    margin: 100px 0;
+    
+}
+.Student {
+    width: 332px;
+    float:right;
+    border-radius: 20px;
+    background-color:rgba(15,47,49,.4); 
+    cursor: pointer;
+    -webkit-transition-property: margin; /* Safari */
+    transition-property: margin;
+    transition-duration:.5s;
+    -webkit-transition-duration:.5s;
+}
+.Student:hover {
+    margin:15px;
+}
+
+.policy {
+    width:700px;
+    height:400px;
+    overflow: scroll;
+    text-align:center;
+    margin:50px auto;
+    line-height: 24.5px;
+}
+
 /*

@@ -41,12 +41,11 @@
         
         <div class="login">
             <h1>Welcome</h1><br><br>
-            <from action="classes/loginStudent.php" method="post">
+            <from>
             <div class="inputholder"><input type="text" name="username" placeholder="Username / Email"></div><br>
             <div class="inputholder"><input type="text" name="password" placeholder="Password"><a href="#">Forget Password</a></div>
             <div class="inputholder"><input type="text" name="type" disabled id="type" ></div>
-            
-            <input type="submit" class="loginButton" value="Log into Your Account">
+            <a class="loginButton">Log into Your Account</a>
             <a class="loginRegister" href="register.php">Don't have an account? <strong>Sign Up</b></strong>
             </from>
         </div>
