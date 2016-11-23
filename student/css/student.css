@@ -1,0 +1,13 @@
+* {
+    padding:0;
+    margin:0;
+}
+body {
+    background-image: url('../assets/bakground.png');
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.header{
+    background-image: url('../assets/top.png');
+}

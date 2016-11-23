@@ -13,5 +13,11 @@ $(document).ready(function() {
        $(".login").fadeIn(1000);
        $(".choice").fadeOut(1000);
     });
+ 
+ 
     
 });
+
+function login(){
+     alert("hello");
+ }

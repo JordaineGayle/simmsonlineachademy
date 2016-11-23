@@ -1,6 +1,4 @@
-<?php
 
-?>
 <!DOCTYPE html>
 <html>
     
@@ -16,6 +14,8 @@
 		 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 		 
 		 <script type="text/javascript" src="js/login.js"></script>
+		 
+		 
     </head>
     
     <body style="background-image:url(image/bakground.png);background-size:100%;">
@@ -41,14 +41,36 @@
         
         <div class="login">
             <h1>Welcome</h1><br><br>
-            <from>
-            <div class="inputholder"><input type="text" name="username" placeholder="Username / Email"></div><br>
-            <div class="inputholder"><input type="text" name="password" placeholder="Password"><a href="#">Forget Password</a></div>
-            <div class="inputholder"><input type="text" name="type" disabled id="type" ></div>
-            <a class="loginButton">Log into Your Account</a>
-            <a class="loginRegister" href="register.php">Don't have an account? <strong>Sign Up</b></strong>
-            </from>
+            <form action="classes/login.php" method="post">
+            <div class="inputholder"><input type="text" name="username" style='width:249px' placeholder="Username / Email" /></div><br>
+            <div class="inputholder"><input type="password" name="password" placeholder="Password" /><a href="#">Forget Password</a></div>
+            <div class="inputholder"><input type="hidden" name="type2" id="type" /></div>
+            
+            <input type="submit" class="loginButton" value="Log into Your Account" />
+           <div id="erroralso"> <a class="loginRegister" href="register.php">Don't have an account? <strong>Sign Up</b></strong></div>
+            </form>
         </div>
+        
+        <?php
+		     $error = $_GET["error"];
+    if($error == "wcreden"){
+        ?>
+        <script>
+        
+        $(document).ready(function() {
+            
+        $("#type").val("<?php echo $_GET['user']?>");
+        $(".login").fadeIn(1000);
+        $(".choice").fadeOut(1000);
+        });
+        $("#erroralso").html('<p class="loginRegister" style="color:red">Either email or password is incorrect</p>');
+        </script>
+        <?php
+    }
+		     ?>
+        
+		     
+		 
     </body>
     
 </html>
