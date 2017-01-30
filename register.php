@@ -1,3 +1,7 @@
+<?php
+	$type = $_GET['type'];
+?>
+
 <!DOCTYPE html>
 <html>
     
@@ -33,7 +37,7 @@
             <div id="passworderror"></div>
             <div class="inputholder"><input type="password" name="password2" placeholder="Retype Password"><a href="#"><i class="material-icons">help</i></a></div>
             <div class="inputholder"><input type="checkbox" name="termscheck" style="width:60px;margin-right:5px" value="accept">I agree to the <a href="terms.html">terms of use</a> and Privacy Policy</div>
-            <input type="hidden" name="selection" value="logregister"/>
+            <input type="hidden" name="selection" value="<?php echo $type;?>"/>
             <input class="loginButton" type="submit" value="Register for an Account">
             <strong>
                 <?php 
@@ -42,7 +46,7 @@
                     }
                 ?>
             </strong>
-            <a class="loginRegister" href="register.html">Already have an account? <strong>Login</b></strong>
+            <a class="loginRegister" href="register.html">Already have an account? <strong>Login</strong></a>
             </form>
         </div>
     </body>

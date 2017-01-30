@@ -27,7 +27,7 @@
         
         <div class="choice">
               <div class="policy" style="overflow:auto">
-            <h2>Choose Account Type</h1>
+            <h2>Choose Account Type</h2>
             
             <div id="loginCoach" class="Coach" >
                 <h2>Coach</h2>
@@ -47,7 +47,7 @@
             <div class="inputholder"><input type="hidden" name="type2" id="type" /></div>
             
             <input type="submit" class="loginButton" value="Log into Your Account" />
-           <div id="erroralso"> <a class="loginRegister" href="register.php">Don't have an account? <strong>Sign Up</b></strong></div>
+           <div id="erroralso"> <a class="loginRegister" >Don't have an account? <strong>Sign Up</strong></a></div>
             </form>
         </div>
         

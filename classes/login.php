@@ -22,7 +22,8 @@ class login extends configuration {
         }else{
             
         if(password_verify($p1,$password)){
-            echo "password";
+            $_SESSION["account"] = $result["Account"];
+            echo header("Location:../coach/");
         }else{
             echo header("Location:../login.php?error=wcreden&user=coach");
         }

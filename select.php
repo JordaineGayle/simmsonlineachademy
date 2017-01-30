@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
     
@@ -61,15 +64,10 @@ Some parts of the Site use cookies and other technologies to collect this non-pe
         </div>
         
         <div class="policy" style="overflow:auto">
-            <h2>Choose Account Type</h1>
-            
-            <div class="Coach" >
-                <h2>Coach</h2>
-            </div>
-            <div class="Student">
-                <h2>Student</h2>
-            </div>
-          
+            <h3>I agree to the terms set forth above</h3>
+            <div style="width:90px;margin:0 auto">
+           <a href="classes/verify.php?id=<?php echo $_SESSION["account"];?>&type=<?php echo $_GET["type"]?>"><button class="loginButton" style="margin:10px 0px">Continue</button></a>
+          	</div>
         </div>
     </body>
     
