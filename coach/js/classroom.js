@@ -6,8 +6,10 @@ function addCourse(selection) {
 function cancelAddCourse(){
 	$(".container_main,.container_select").fadeOut(500);
 	}	
-function addCourceSelection(subject){
-	$.post("classes/extention.php",{subject:subject,collect:"addCourse"},function(data){
+function addCourceSelection(subject,identifier){
+	$.post("classes/extention.php",{subject:subject,collect:"addCourseEdit"},function(data){
 		$("#main").html(data);
+		$("#main").animate({height:"600px"},1000);
 		});
-	}	
+	}
+	
