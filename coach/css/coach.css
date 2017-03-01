@@ -37,7 +37,20 @@ input,select {
 	margin:3px 188px;
 	float:left;
 	cursor:pointer;
-}	
+}
+#course_list li {
+	text-align: center;
+    color: #27777C;
+    font-size: 19px;
+    margin: 7px 0;
+	cursor:pointer;}
+.controlPanel {
+	margin:10px 0;}
+.controlPanel li {
+	list-style: none;
+    display: inline-block;
+	padding:0 24px;
+	cursor:pointer;}	
 #center a {
 	text-decoration:none;}
 .header span {
@@ -84,6 +97,11 @@ section{
 	flex:3;
     -webkit-flex:3;
 	}
+.supportList li{
+	padding:5px 0}
+.supportList{
+	list-style:none;
+	margin:8px 0}	
 .profile_aside p {
 	text-align:left;
 	cursor:pointer;
@@ -113,7 +131,9 @@ main {
 	padding:50px 20px;
 	border:dashed 2px #27777C;
 	width:100px;
-	cursor:pointer;}
+	cursor:pointer;
+	float: left;
+    margin: 14px;}
 .container_main {
 	width:100%;
 	position:absolute;

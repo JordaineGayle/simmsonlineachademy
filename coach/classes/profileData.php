@@ -1,5 +1,6 @@
 <?php 
 
+
 class data extends configuration {
 	public $name;
 	
@@ -19,6 +20,21 @@ class data extends configuration {
             <a class="loginButton" onClick="SaveName()">Save</a>
 		<?php
 		
-		}	
+		}
+	public function currentCourses($identifier) {
+		// check database for any courses 
+		$courseQuery = $this->connect->query("SELECT `course_name` FROM `course` WHERE `account`='$identifier' ");
+				
+		while($course = $courseQuery->fetch_assoc()){
+			
+		?>
+			<li onclick="load_course('<?php echo $course['course_name'];?>')"><?php echo $course['course_name'];?></li>
+            
+		<?php	
+			
+			}
+		
+		
+		}		
 	}
 	

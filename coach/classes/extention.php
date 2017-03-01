@@ -204,12 +204,12 @@ switch ($check){
             </tr>
             <tr>
             	<td>Time Frame</td>
-                <td>10:00 AM - 12:00 PM<input type="checkbox" id="timeFrame" value="Mon"><br />
-                12:00 PM - 2:00PM <input type="checkbox" id="timeFrame" value="tue" /><br />
-                2:00PM - 4:00PM <input type="checkbox" id="timeFrame" value="wed" /><br />
-                4:00PM - 6:00PM <input type="checkbox" id="timeFrame" value="thur" /><br />
-                6:OOPM - 8:00PM <input type="checkbox" id="timeFrame" value="wed" /><br />
-                8:OOPM - 10:00PM <input type="checkbox" id="timeFrame" value="wed" /><br /> </td>
+                <td>10:00 AM - 12:00 PM<input type="checkbox" id="timeFrame" value="10:00 AM - 12:00 PM"><br />
+                12:00 PM - 2:00PM <input type="checkbox" id="timeFrame" value="12:00 PM - 2:00PM" /><br />
+                2:00PM - 4:00PM <input type="checkbox" id="timeFrame" value="2:00PM - 4:00PM" /><br />
+                4:00PM - 6:00PM <input type="checkbox" id="timeFrame" value="4:00PM - 6:00PM" /><br />
+                6:OOPM - 8:00PM <input type="checkbox" id="timeFrame" value="6:OOPM - 8:00PM" /><br />
+                8:OOPM - 10:00PM <input type="checkbox" id="timeFrame" value="8:OOPM - 10:00PM" /><br /> </td>
             </tr>
             <td>
             	<td></td>
@@ -227,7 +227,7 @@ switch ($check){
 					 var variable = $(this).val();
 					 daysArray.push(variable);
 					});
-				 $("#timeFrame:checked"dwfg).each(function() {
+				 $("#timeFrame:checked").each(function() {
                     var timeVariable = $(this).val();
 					timeArray.push(timeVariable);
                 });	

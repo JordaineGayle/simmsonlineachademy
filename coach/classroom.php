@@ -47,16 +47,16 @@ require "../classes/config.php";
         
         <div class="container_main" onClick="cancelAddCourse()">
         	<div class="container_select">
-            	<a onClick="addCourceSelection('math')">Mathematics</a>
-                <a onClick="addCourceSelection('englishA')">English Language</a>
-                <a onClick="addCourceSelection('chemistry')">Chemistry</a>
-                <a onClick="addCourceSelection('physics')">Physics</a>
-                <a onClick="addCourceSelection('biology')">Biology</a>
-                <a onClick="addCourceSelection('intscience')">Integrated Science</a>
-                <a onClick="addCourceSelection('business')">Principle of Business</a>
-                <a onClick="addCourceSelection('accounts')">Principle of Accounts</a>
-                <a onClick="addCourceSelection('office')">Office Administration</a>
-                <a onClick="addCourceSelection('IT')">Information Technology</a>
+            	<a onClick="addCourceSelection('Mathematics')">Mathematics</a>
+                <a onClick="addCourceSelection('English A')">English Language</a>
+                <a onClick="addCourceSelection('Chemistry')">Chemistry</a>
+                <a onClick="addCourceSelection('Physics')">Physics</a>
+                <a onClick="addCourceSelection('Biology')">Biology</a>
+                <a onClick="addCourceSelection('intscience')">Null</a>
+                <a onClick="addCourceSelection('Business')">Principle of Business</a>
+                <a onClick="addCourceSelection('Accounts')">Principle of Accounts</a>
+                <a onClick="addCourceSelection('Office Administration')">Office Administration</a>
+                <a onClick="addCourceSelection('Information Technology')">Information Technology</a>
                 
             </div>
         </div>
@@ -66,6 +66,9 @@ require "../classes/config.php";
             <aside class="profile_aside">
                 <div>
                    <h2>Current Courses</h2> 
+                   <ul id="course_list">
+                   	<?php echo $data->currentCourses($_SESSION['account']);?>
+                   </ul>
                 </div>
                
                 
@@ -74,7 +77,7 @@ require "../classes/config.php";
             </aside>
             
             <section class="profile_section">
-                <div class="joinMain" id="main" style="height:250px">
+                <div class="joinMain" id="main">
               <h2>Please select a Course to start</h2>
               <div class="addSomething" onClick="addCourse('add')">
               	<i class="material-icons">add_box</i>
@@ -92,5 +95,6 @@ require "../classes/config.php";
         <!--scripts-->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script src="js/classroom.js"></script>
+        <script src="ckeditor/ckeditor.js"></script>
     </body>
 </html>
