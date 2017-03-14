@@ -22,6 +22,38 @@ class control extends configuration {
             <li onClick="controlSet('sections','<?php echo $courseID;?>')">Update Sections</li>
             <li onClick="controlSet('overview','<?php echo $courseID;?>')">Update Overview</li>
         </ul>
+        <script>
+        // course control structions 
+function controlSet(unitControl,Identifier){
+
+	switch(unitControl){
+		 case "overview":
+		 	$.post('classes/controlsetext.php',{unitControlID:Identifier},function(data){
+				$("#courseUpdates").html(data);
+				
+					});
+					
+		 break;
+		 case "sections":
+		
+		 	$.post('classes/controlsetext.php',{SectionControlID:Identifier},function(data){
+				$("#courseUpdates").html(data);
+				
+					});
+		 break;
+		 case "":
+		 
+		 break;
+		 
+		 default:
+		 
+		 
+		}
+	
+	
+	} 	
+	
+        </script>
         <hr>
         <div id="courseUpdates">
 			<h1><?php echo $showResults['course_name'];?> <span style="font-size:14px">ID: <?php echo $showResults['course_ID'];?></span> </h1><br><br>
@@ -44,6 +76,8 @@ class control extends configuration {
                 </ul>
             </div>
            </div> 
+           
+           <div style="height:10px; clear:both"></div>
 		<?php
 		}
 		
@@ -65,9 +99,16 @@ class control extends configuration {
 		}
 		
 	public function form_course_section($account,$fromID) {
+		$query = $this->connect->query("SELECT `section_position` FROM `course_section` WHERE `course_ID`='$fromID' ORDER BY `section_position` ASC");
+		
+		while($result = $query->fetch_assoc()){
+			$indexArray = $result['section_position'];
+			}
+			$indexArray++;
 		
 		?>
 			<input type="text" id="setSection">
+            <input type="hidden" id="sectionPosition" value="<?php echo $indexArray;?>">
             <a class="button" onclick="UpdateSectionAdditional('<?php echo $fromID;?>')">Add Course</a>
 		<?php
 		

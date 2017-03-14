@@ -51,16 +51,27 @@ class controlSet extends configuration {
             </div>
             
 			<?php
-			$Query  = $this->connect->query("SELECT * FROM `course_section` WHERE `course_ID`='$unitControlID'");
+			$Query  = $this->connect->query("SELECT * FROM `course_section` WHERE `course_ID`='$unitControlID' ORDER BY `section_position` ASC");
 			
 			while($result = $Query->fetch_assoc()){
 				
 				?>
-			<div class="addSomething" onclick="">
+			<div class="addSomething" onclick="editSection('<?php echo $result['section_ID']; ?>')">
             	<a><?php echo $result['section'];?></a>
-            </div><p>.</p>
+            </div>
 				<?php
 				}
+				
+				?>
+				<script>
+                	function editSection(SectionID){
+	
+	$.post("classes/section_class.php",{SectionID:SectionID},function(data){
+		$("#courseUpdates").html(data);
+		});
+	}	
+                </script>
+				<?php
 		}
 		 
 	public function Aims(){
@@ -70,11 +81,7 @@ class controlSet extends configuration {
 	public function Support(){
 		
 		}	
-		
-		
-	private function subSection() {
-		
-		}			
+				
 	
 	// update control set
 	public function setOverview($OverviewUpdate,$courseID){
@@ -83,8 +90,8 @@ class controlSet extends configuration {
 		
 	}
 	
-	public function setSection($account,$courseID,$section){
-		$this->connect->query("INSERT INTO `course_section` (`course_ID`,`section`,`account`) VALUES ('$courseID','$section','$account')");
+	public function setSection($account,$courseID,$section,$position){
+		$this->connect->query("INSERT INTO `course_section` (`course_ID`,`section`,`account`,`section_position`) VALUES ('$courseID','$section','$account','$position')");
 		return $this->Section($courseID);
 		}
 }
@@ -102,6 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	
 	//updating section data
 	@$sectionUpdate   = test_input($_POST["sectionUpdate"]);
+	@$position		= test_input($_POST["position"]);
 
 }
 //escape function
@@ -126,7 +134,7 @@ if(isset($SectionControlID) && !empty($SectionControlID)){
 	
 	}
 if(isset($sectionUpdate) && !empty($sectionUpdate)){
-	echo $control->setSection($_SESSION['account'],$courseID,$sectionUpdate);
+	echo $control->setSection($_SESSION['account'],$courseID,$sectionUpdate,$position);
 
 	}		
 	

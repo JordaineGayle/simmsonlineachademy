@@ -65,8 +65,9 @@ function UpdateSection(amount,courseName) {
 function UpdateSectionAdditional(courseID) {
 	// currently working here 
 	var setSection = $("#setSection").val();
+	var value = $("#sectionPosition").val();
 	
-		$.post('classes/controlsetext.php',{courseID:courseID,sectionUpdate:setSection},function(data){
+		$.post('classes/controlsetext.php',{courseID:courseID,sectionUpdate:setSection,position:value},function(data){
 				$("#courseUpdates").html(data);
 					});
 	} 	
@@ -79,40 +80,6 @@ function load_course(course){
 		$("#main").html(data);
 		});
 	}
-	
-	
-	
-	
-	
-// course control structions 
-function controlSet(unitControl,Identifier){
-
-	switch(unitControl){
-		 case "overview":
-		 	$.post('classes/controlsetext.php',{unitControlID:Identifier},function(data){
-				$("#courseUpdates").html(data);
-				
-					});
-					
-		 break;
-		 case "sections":
-		
-		 	$.post('classes/controlsetext.php',{SectionControlID:Identifier},function(data){
-				$("#courseUpdates").html(data);
-				
-					});
-		 break;
-		 case "":
-		 
-		 break;
-		 
-		 default:
-		 
-		 
-		}
-	
-	
-	} 	
 	
 	
 	
@@ -130,4 +97,6 @@ function sectionUpdateForm(ID) {
 		
 		$("#courseUpdates").load("classes/courseControl.php",{courseForm:ID});
 		
-	}			
+	}	
+	
+		
