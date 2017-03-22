@@ -96,5 +96,6 @@ require "../classes/config.php";
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script src="js/classroom.js"></script>
         <script src="ckeditor/ckeditor.js"></script>
+        
     </body>
 </html>
