@@ -77,94 +77,11 @@ class section extends configuration {
 		}
 	public function editAssignment($classID,$edit,$assignDetails,$assignmentName) {
 		
-		if($edit == "assign"){
-			
-			$query = $this->connect->query("UPDATE `class_assignment` SET `title`='$assignmentName',`assignment`='$assignDetails' WHERE `class_ID`='$classID'");
-			
-			$query = $this->connect->query("SELECT * FROM `class_assignment` WHERE `class_ID`='$classID' ");
-			
-			while($result = $query->fetch_assoc()){
-				
-				?>
-					
-                    	<tr>
-                        	<td><?php echo $result['title'];?></td>
-                            <td><?php echo $result['assignment'];?></td>
-                            <td><a class="btn" onclick="ManageAssing('delete','<?php echo $result['class_ID']?>')">Delete</a></td>
-                            <td><a class="btn" onclick="ManageAssing('edit','<?php echo $result['class_ID']?>')">Edit</a></td>
-                        </tr>
-                    
-				<?php
-				
-				}
-				
-				
-				
-			
-			}else{
-			
-			?>
-			<h2>Assignment</h2>
-            <input type="hidden" value="<?php echo $classID;?>" name="ID">
-                    <table>
-                    	<tr>
-                        	<td>Assignment Title:</td>
-                            <td><input type="text" name="assignmentNameEdit"></td>
-                        </tr>
-                        <tr>
-                        
-                            <td colspan="2"><textarea name="assignmentedit" id="editor1"></textarea></td>
-                        </tr>
-                        <tr>
-                        	<td> <a class="btn" style="cursor:pointer" onClick="editAssignment()">Update</a></td>
-                        </tr>
-                       
-                    </table>
-                    <script>
-                    	functon editAssignment() {
-							var id = $("input[name=ID]").val();
-							var name = $("input[name=assignmentNameEdit]").val();
-							var assignment = $("input[name=assignmentedit]").val();
-							
-							$.post("classes/section_class.php",{name:name,classID:id,assignment:assignment,readyassignedit:"assign"},function(data){
-								
-								});
-							}
-							// Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-                    </script>
-           
-		<?php
-				
-				}
 		
 		
 		
 		}
-	public function DeleteAssignment($classID) {
-		$this->connect->query("DELETE FROM `class_assignment` WHERE `class_ID`='$classID'");
-		
-		$query = $this->connect->query("SELECT * FROM `class_assignment` WHERE `class_ID`='$classID' ");
-			
-			
-			while($result = $query->fetch_assoc()){
-				
-				?>
-					
-                    	<tr>
-                        	<td><?php echo $result['title'];?></td>
-                            <td><?php echo $result['assignment'];?></td>
-                            <td><a class="btn" onclick="ManageAssing('delete','<?php echo $result['class_ID']?>')">Delete</a></td>
-                            <td><a class="btn" onclick="ManageAssing('edit','<?php echo $result['class_ID']?>')">Edit</a></td>
-                        </tr>
-                    
-				<?php
-				
-				}
-				
-				
-		}				
+	
 		
 	public function addClassesExt($section){
 		
@@ -281,14 +198,3 @@ if(isset($editClasses) && !empty($editClasses)){
 if(isset($assignmentName) && !empty($assignmentName)){
 	$section->addAssignment($assignmentName,$assignDetails,$classID,$_SESSION["account"]);
 	}
-if(isset($action) && !empty($action)){
-	if($action == 'delete'){
-		$section->DeleteAssignment($classID);
-		}else{
-		$section->editAssignment($classID,$edit,$assignDetails,$assignmentName);	
-			}
-	}					
-if(isset($edit) && !empty($edit)){
-	$section->editAssignment($classID,$edit,$assignDetails,$assignmentName);
-	}	
-	

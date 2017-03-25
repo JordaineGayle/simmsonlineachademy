@@ -23,6 +23,7 @@ require "../classes/config.php";
       <link href="css/video-js.css" rel="stylesheet">
       <script src="js/videojs-ie8.min.js"></script>
       
+      
     
         <title>Classroom</title>
     </head>
@@ -78,10 +79,7 @@ require "../classes/config.php";
   poster="MY_VIDEO_POSTER.jpg"  autoplay >
             	<source src="classes/<?php echo $video;?>" type="video/mp4">
                 Your browser does not support the video tag
-                <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
+                
             </video>
 						<?php
 						}
@@ -108,24 +106,9 @@ require "../classes/config.php";
                 
                
               </div>
-               <div id="editAssignment" style="display:none">
-                	<h2>Assignment</h2>
-                    <table>
-                    	<tr>
-                        	<td>Assignment Title:</td>
-                            <td><input type="text" name="assignmentName"></td>
-                        </tr>
-                        <tr>
-                        
-                            <td colspan="2"><textarea name="assignment" id="editor1"></textarea></td>
-                        </tr>
-                        <tr>
-                        	<td> <a class="btn" style="cursor:pointer" onClick="addAssignment('<?php echo $_GET['id'];?>','<?php echo $_SESSION["account"];?>')">Update</a></td>
-                        </tr>
-                       
-                    </table>
-           
-                </div>
+               
+                
+                
               <div style="clear:both;height:12px"></div>
                 </div>
                 
@@ -138,7 +121,7 @@ require "../classes/config.php";
         
         
         <!--scripts-->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/jquery-2x.min.js"></script>
         <script src="js/classroom.js"></script>
         <script src="ckeditor/ckeditor.js"></script>
         <script>
@@ -198,10 +181,15 @@ require "../classes/config.php";
 					$('#editAssignment').delay(1000).fadeOut(500);
 					});
 				}
-			function showAssignment(){
-				$('.resources').fadeOut(500);
-				$('#editAssignment').delay(500).fadeIn(500);
-				}	
+			
+					function showAssignment(){
+						
+							$.post("configuration/master_handler.php",{handle:"assignment",action:"add",classID:'<?php echo $_GET["id"]?>'},function(data){
+								
+								$(".resources").html(data);
+								});
+								}
+				
 				
 			function addQuiz() {
 				
@@ -212,12 +200,6 @@ require "../classes/config.php";
 				}		
 			
 			
-        	 
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-            
-        
         </script>
         
     </body>

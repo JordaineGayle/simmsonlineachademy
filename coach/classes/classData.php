@@ -18,7 +18,7 @@ class classroom extends configuration {
 		
 		public function assignment($classID){
 			$query = $this->connect->query("SELECT * FROM `class_assignment` WHERE `class_ID`='$classID' ");
-			echo "<table id='assignment'>";
+			echo "<table><div id='assignment'>";
 			
 			while($result = $query->fetch_assoc()){
 				
@@ -35,16 +35,18 @@ class classroom extends configuration {
 				
 				}
 				
-				echo "</table><br><br>";
+				echo "</div></table><br><br>";
 				
 				?>
 					<script>
                     	function ManageAssing(action,classID){
 							
-							
-								$.post("classes/section_class.php",{action:action,classID:classID},function(data){
-									$("#assignment").html(data);
-									});
+							$.post("configuration/master_handler.php",{action:action,classID:classID,handle:"assignment"},function(data) {
+								$("#editAssignment").html(data);
+								$("#resources").fadeOut(1000);
+								$("#editAssignment").fadeIn(1000);
+								
+								});
 								
 							}
                     </script>
