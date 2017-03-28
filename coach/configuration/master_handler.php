@@ -1,6 +1,7 @@
 <?php
-session_start();
-$coach = $_SESSION["account"]; 
+session_start(); 
+$account = $_SESSION["account"];
+
 include "assignment_handler.php";
 
 // collect data from main website
@@ -11,7 +12,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	@$handle    	= test_input($_POST["handle"]);
 	
 	//assignment 
-	@$assignment    = test_input($_POST["assignment"]);
+	@$assignmentID		= test_input($_POST["assignmentID"]);
+	@$assignmentTitle    = test_input($_POST["assignment"]);
 	@$assigndetail  = test_input($_POST["detail"]);
 	
 
@@ -30,12 +32,18 @@ switch ($handle){
 	$assignment = new assignments;
 		
 		if($action == "delete"){
-			$assignment->DeleteAssignment($classid);
+			$assignment->DeleteAssignment($assignmentID,$classid);
 			}
 		if($action == "edit"){
-			
-			$assignment->EditAssignment($assignment,$assigndetail,$classid,@$assignID,$coach);
+			$assignment->EditFormAssignment($classid,$assignmentID);
 			}
+		if($action == "editUpdate"){
+			$assignment->EditAssignment($assignmentTitle,$assigndetail,$classid,$assignmentID);
+			}	
+		if($action == "new"){
+			
+			$assignment->NewAssignment($assignmentTitle,$assigndetail,$classid,$assignmentID);
+			}	
 		if($action == "add"){
 			$assignment->AddAssignment($classid);
 			}		

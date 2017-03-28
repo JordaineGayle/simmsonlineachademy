@@ -18,7 +18,6 @@ class classroom extends configuration {
 		
 		public function assignment($classID){
 			$query = $this->connect->query("SELECT * FROM `class_assignment` WHERE `class_ID`='$classID' ");
-			echo "<table><div id='assignment'>";
 			
 			while($result = $query->fetch_assoc()){
 				
@@ -26,26 +25,24 @@ class classroom extends configuration {
 					
                     	<tr>
                         	<td><?php echo $result['title'];?></td>
-                            <td><?php echo $result['assignment'];?></td>
-                            <td><a class="btn" onclick="ManageAssing('delete','<?php echo $result['class_ID']?>')">Delete</a></td>
-                            <td><a class="btn" onclick="ManageAssing('edit','<?php echo $result['class_ID']?>')">Edit</a></td>
+                            <td><a class="btn" onclick="ManageAssing('delete','<?php echo $result['assignmentID']?>','<?php echo $result['class_ID'];?>')">Delete</a></td>
+                            <td><a class="btn" onclick="ManageAssing('edit','<?php echo $result['assignmentID']?>','<?php echo $result['class_ID'];?>')">Edit</a></td>
                         </tr>
                     
 				<?php
 				
 				}
 				
-				echo "</div></table><br><br>";
+				
 				
 				?>
 					<script>
-                    	function ManageAssing(action,classID){
+                    	function ManageAssing(action,assignmentID,classID){
 							
-							$.post("configuration/master_handler.php",{action:action,classID:classID,handle:"assignment"},function(data) {
-								$("#editAssignment").html(data);
-								$("#resources").fadeOut(1000);
-								$("#editAssignment").fadeIn(1000);
-								
+							$.post("configuration/master_handler.php",{action:action,classID:classID,assignmentID:assignmentID,handle:"assignment"},function(data) {
+								//alert("hello");
+								$(".resources").html(data);
+																
 								});
 								
 							}
