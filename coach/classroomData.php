@@ -9,6 +9,7 @@ require "../classes/config.php";
  
  $data = new data;
  $class = new classroom;
+
  $name = $data->headerInformation($_SESSION["account"]);
  $class->classroomdata($_GET['id']);
  
@@ -94,12 +95,13 @@ require "../classes/config.php";
                 <p>Textbooks are currently unavailable, please check back later when the library comes online</p><br><br>
                 
                 <h3>Assignments</h3><br>
-                <?php $class->assignment($_GET['id']);	
-					?>
+                 <table id='assignment'>
+                <?php $class->assignment($_GET['id']);?>
+                 </table><br><br>
                 <a class="btn" style="cursor:pointer" onClick="showAssignment()">Add Assignment</a><br><br>
                 
                 <h3>Quiz</h3><br>
-                <a class="btn" style="cursor:pointer">Add Quiz</a><br><br>
+                <a class="btn" href="quiz.php?classID=<?php echo $_GET['id'];?>" style="cursor:pointer">Add Quiz</a><br><br>
                 
                 <h3>Transcript</h3><br>
                 <a class="btn" style="cursor:pointer">Add Transcript</a><br><br>
@@ -171,22 +173,14 @@ require "../classes/config.php";
   $('#my-video').bind('contextmenu',function() { return false; });
 });
 			
-			function addAssignment(classID,coach) {
-				var name = $("input[name=assignmentName]").val();
-				var assignment = $("textarea[name=assignment]").val();
-				
-				$.post("classes/section_class.php",{name:name,classID:classID,assignment:assignment},function(data){
-					$('#editAssignment').html(data);
-					$('.resources').delay(1500).fadeIn(500);
-					$('#editAssignment').delay(1000).fadeOut(500);
-					});
-				}
+			
 			
 					function showAssignment(){
 						
 							$.post("configuration/master_handler.php",{handle:"assignment",action:"add",classID:'<?php echo $_GET["id"]?>'},function(data){
 								
-								$(".resources").html(data);
+                                
+								//$(".resources").html(data);
 								});
 								}
 				
