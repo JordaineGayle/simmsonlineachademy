@@ -21,6 +21,7 @@ require "../classes/config.php";
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
       <link href="css/video-js.css" rel="stylesheet">
+      <script type="text/javascript" src="../js/jquery-2x.min.js"></script>
       <script src="js/videojs-ie8.min.js"></script>
       
       
@@ -61,10 +62,10 @@ require "../classes/config.php";
               
                     <h2>Quiz Creator Tool</h2>
                     
-                    <div onclick="questionType('short')">
+                    <div class="questiontype" onclick="questionType('short')">
                         <p>Multiple Choice Questions</p>
                     </div>
-                    <div onclick="questionType('long')">
+                    <div class="questiontype" onclick="questionType('long')">
                         <p>Short Answer Questions</p>
                     </div>
               
@@ -82,6 +83,55 @@ require "../classes/config.php";
         <script type="text/javascript" src="../js/jquery-2x.min.js"></script>
         <script src="ckeditor/ckeditor.js"></script>
         <script>
+            function addQuestion(){
+                
+                $("#questionContainer").append("<div class='question'></div>");
+                
+                $(".question").load("quizApp/loadquiz.html #newQuestion");
+                
+            }
+            
+            function SaveQuiz(){
+                subArray = new Array();
+                $index = 0;
+                
+                $("input[name=question1]").each(function(){
+                  var title =  $(this).val();
+                    subArray[$index] = {Quiztitle:title};
+                    $index++;
+                });
+                
+                $index = 0;
+                 $("input[name=option1]").each(function(){
+                    var item1 =  $(this).val();
+                //   subArray[$index] = {option1:item1};
+                    $index++;
+                    
+                    }); 
+                 $index = 0;
+                $("input[name=option2]").each(function(){
+                    var item2 = $(this).val();
+                 //   subArray[$index] = {option2:item2};
+                });
+                
+                 $index = 0;
+                $("input[name=option3]").each(function(){
+                    var item3 = $(this).val();
+                 //   subArray[$index] = {option3:item3};
+                });
+                $index = 0;
+                $("input[name=optio4]").each(function(){
+                    var item4 = $(this).val();
+                 //   subArray[$index] = {option4:item4};
+                });
+                
+                $.post("configuration/master_handler.php",{subArray:subArray,handle:"addQuiz"},function(data){
+                   alert(data); 
+                });
+               
+               
+            }
+            
 		
             function questionType(type) {
                 if(type == "short"){

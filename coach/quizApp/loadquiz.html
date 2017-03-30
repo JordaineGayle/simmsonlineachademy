@@ -1,4 +1,5 @@
 <div id="short">
+    <div style="float:right"><a class="btn" onclick="SaveQuiz()">Save Quiz</a></div>
     <table>
         <tr>
             <td>How long will this quiz last?</td>
@@ -9,24 +10,47 @@
             <td><input type="text" name="quiztitle"/></td>
         </tr>
     </table>
-    <input type="hidden" value="1" id="marker">
-    <div class="question">
-        <div class="questionContainer">
-        <input type="text" name="question1" >
-        </div>
-        <div class="options">
+    
+    <div id="questionContainer">
+    <div class="question1">
         
+        <input type="text" class='inputTitle' name="question1" placeholder="Enter your question here" >
+        <hr style="border-bottom: 1px solid blue;">
+        <div class="options">
+            
+            <label>Option 1</label><input type="text" class="inputoptions" placeholder="enter answers here"  name="option1">
+            <label>Option 2</label><input type="text" class="inputoptions" placeholder="enter answers here"  name="option2"><br>
+            
+            <label>Option 3</label><input type="text" class="inputoptions" placeholder="enter answers here" name="option3">
+            <label>Option 4</label><input type="text" class="inputoptions" placeholder="enter answers here" name="option4">
+                
         </div>
     </div>
-    <script>
-        var count = $("#marker").val();
-        
-        function questionCount(){
-            
-            
-        }
-    </script>
+    </div>
+    <div><a class="btn" onclick="addQuestion()">Add question</a></div>
+    
+    
 </div>
+
+<div id="newQuestion">
+    
+    <div class="questionContainer">
+        <div class="question1">
+        
+        <input type="text" class='inputTitle' name="question1" placeholder="Enter your question here" >
+        <hr style="border-bottom: 1px solid blue;">
+        <div class="options">
+            
+            <label>Option 1</label><input type="text" class="inputoptions" placeholder="enter answers here"  name="option1">
+            <label>Option 2</label><input type="text" class="inputoptions" placeholder="enter answers here"  name="option2"><br>
+            
+            <label>Option 3</label><input type="text" class="inputoptions" placeholder="enter answers here" name="option3">
+            <label>Option 4</label><input type="text" class="inputoptions" placeholder="enter answers here" name="option4">
+                
+        </div>
+    </div>
+    </div>
+    </div>
 
 <div id="long">
 

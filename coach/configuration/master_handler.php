@@ -15,6 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	@$assignmentID		= test_input($_POST["assignmentID"]);
 	@$assignmentTitle    = test_input($_POST["assignment"]);
 	@$assigndetail  = test_input($_POST["detail"]);
+   
 	
 
 }
@@ -49,9 +50,17 @@ switch ($handle){
 			}		
 	break;
 	
-	case "ReceiveAssignmentForm": 
-		
-		
+	case "addQuiz": 
+        $quizArray = array();
+		$quizArray = $_POST["subArray"];
+		$output_array_1 = array();
+        
+        for($i = 0;$i < count($quizArray);$i++){
+           // $output_array_1[$i] = $quizArray["title"];
+            
+        }
+        print_r($quizArray);
+        
 		
 	break;
 	default:
